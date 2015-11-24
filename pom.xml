@@ -49,6 +49,9 @@
           <templateDirectory>
             ${basedir}/src/main/velocity-templates/
           </templateDirectory>
+          <velocityToolsDirectory>
+            ${basedir}/src/main/java/velocity-tools/
+          </velocityToolsDirectory>
         </configuration>
         <executions>
           <execution>
