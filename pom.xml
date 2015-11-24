@@ -1,0 +1,56 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>br.com.me</groupId>
+  <artifactId>avro-compiler-injecting-velocity-tools</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>jar</packaging>
+
+  <name>Avro Compiler Injecting Velocity Tools</name>
+  <description>
+    Sample application demonstrating how Avro Compiler would enable more
+    flexibility through Velocity templates' context injection.
+  </description>
+  <url>http://github.com/embs/avro-compiler-injecting-velocity-tools</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <compiler-plugin.version>2.3.2</compiler-plugin.version>
+  </properties>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>${compiler-plugin.version}</version>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.avro</groupId>
+        <artifactId>avro-maven-plugin</artifactId>
+        <version>1.9.0-SNAPSHOT</version>
+        <dependencies>
+          <dependency>
+            <groupId>org.apache.avro</groupId>
+            <artifactId>avro-compiler</artifactId>
+            <version>1.9.0-SNAPSHOT</version>
+          </dependency>
+        </dependencies>
+        <configuration>
+          <templateDirectory>
+            ${basedir}/src/main/velocity-templates/
+          </templateDirectory>
+        </configuration>
+        <executions>
+          <execution>
+            <id>schemas</id>
+            <goals>
+              <goal>schema</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+</project>

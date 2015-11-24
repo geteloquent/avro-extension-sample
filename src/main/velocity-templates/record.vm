@@ -1,0 +1,20 @@
+public class ${this.mangle($schema.getName())} {
+
+#foreach ($field in $schema.getFields())
+  private ${this.javaUnbox($field.schema())} ${this.mangle($field.name(), $schema.isError())};
+#end
+
+  public ${this.mangle($schema.getName())}() {}
+
+#foreach ($field in $schema.getFields())
+  public ${this.javaType($field.schema())} ${this.generateGetMethod($schema, $field)}() {
+    return ${this.mangle($field.name(), $schema.isError())};
+  }
+
+#if ($this.createSetters)
+  public void ${this.generateSetMethod($schema, $field)}(${this.javaType($field.schema())} value) {
+    this.${this.mangle($field.name(), $schema.isError())} = value;
+  }
+#end
+#end
+}
