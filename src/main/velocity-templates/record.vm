@@ -1,9 +1,6 @@
 public class ${this.mangle($schema.getName())} {
 
 #foreach ($field in $schema.getFields())
-  /**
-   * $validationsGenerator.validationsFor($field)
-   */
   private ${this.javaUnbox($field.schema())} ${this.mangle($field.name(), $schema.isError())};
 #end
 
