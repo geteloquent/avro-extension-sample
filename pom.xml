@@ -45,14 +45,19 @@
             <artifactId>avro-compiler</artifactId>
             <version>1.9.0-SNAPSHOT</version>
           </dependency>
+          <dependency>
+            <groupId>br.com.me</groupId>
+            <artifactId>velocity-tools-avro</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+          </dependency>
         </dependencies>
         <configuration>
           <templateDirectory>
             ${basedir}/src/main/velocity-templates/
           </templateDirectory>
-          <velocityToolsDirectory>
-            ${basedir}/src/main/java/velocity-tools/
-          </velocityToolsDirectory>
+          <velocityToolsClassesNames>
+            <param>br.com.me.CustomTool</param>
+          </velocityToolsClassesNames>
         </configuration>
         <executions>
           <execution>

@@ -5,6 +5,9 @@
  */
 public class Person {
 
+  /**
+   * age should not be null.
+   */
   private int age;
 
   public Person() {}
