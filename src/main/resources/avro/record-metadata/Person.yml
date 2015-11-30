@@ -1,0 +1,4 @@
+persistence:
+  elasticsearch:
+    indexName: "people"
+    type: "person"

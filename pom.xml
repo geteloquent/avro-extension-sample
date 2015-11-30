@@ -44,6 +44,9 @@
         <artifactId>avro-maven-plugin</artifactId>
         <version>1.9.0-SNAPSHOT</version>
         <configuration>
+          <metadataDirectory>
+            ${basedir}/src/main/resources/avro/record-metadata/
+          </metadataDirectory>
           <templateDirectory>
             ${basedir}/src/main/resources/avro/velocity-templates/
           </templateDirectory>

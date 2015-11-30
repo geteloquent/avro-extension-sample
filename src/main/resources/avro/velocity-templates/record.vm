@@ -1,10 +1,10 @@
-$schema.getMetada().get("persistence");
+#set ($indexName = $schema.getMetadata().get('persistence').get('elasticsearch').get('indexName'))
+#set ($type = $schema.getMetadata().get('persistence').get('elasticsearch').get('type'))
+@Document(indexName = "$indexName", type = "$type")
 public class ${this.mangle($schema.getName())} {
 
 #foreach ($field in $schema.getFields())
-  /**
-   * $customtool.fetchDocumentationFor($field)
-   */
+
   private ${this.javaUnbox($field.schema())} ${this.mangle($field.name(), $schema.isError())};
 #end
 
