@@ -19,6 +19,19 @@
     <compiler-plugin.version>2.3.2</compiler-plugin.version>
   </properties>
 
+  <dependencies>
+    <dependency>
+      <groupId>org.apache.avro</groupId>
+      <artifactId>avro</artifactId>
+      <version>1.9.0-SNAPSHOT</version>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.data</groupId>
+      <artifactId>spring-data-elasticsearch</artifactId>
+      <version>1.3.0.RELEASE</version>
+    </dependency>
+  </dependencies>
+
   <build>
     <plugins>
       <plugin>
@@ -30,25 +43,10 @@
         <groupId>org.apache.avro</groupId>
         <artifactId>avro-maven-plugin</artifactId>
         <version>1.9.0-SNAPSHOT</version>
-        <dependencies>
-          <dependency>
-            <groupId>org.apache.avro</groupId>
-            <artifactId>avro-compiler</artifactId>
-            <version>1.9.0-SNAPSHOT</version>
-          </dependency>
-          <dependency>
-            <groupId>br.com.me</groupId>
-            <artifactId>velocity-tools-avro</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-          </dependency>
-        </dependencies>
         <configuration>
           <templateDirectory>
-            ${basedir}/src/main/velocity-templates/
+            ${basedir}/src/main/resources/avro/velocity-templates/
           </templateDirectory>
-          <velocityToolsClassesNames>
-            <param>br.com.me.CustomTool</param>
-          </velocityToolsClassesNames>
         </configuration>
         <executions>
           <execution>
