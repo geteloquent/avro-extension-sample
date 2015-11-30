@@ -1,3 +1,4 @@
+$schema.getMetada().get("persistence");
 public class ${this.mangle($schema.getName())} {
 
 #foreach ($field in $schema.getFields())
