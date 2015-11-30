@@ -1,10 +1,9 @@
 #set ($indexName = $schema.getMetadata().get('persistence').get('elasticsearch').get('indexName'))
 #set ($type = $schema.getMetadata().get('persistence').get('elasticsearch').get('type'))
-@Document(indexName = "$indexName", type = "$type")
+@org.springframework.data.elasticsearch.annotations.Document(indexName = "$indexName", type = "$type")
 public class ${this.mangle($schema.getName())} {
 
 #foreach ($field in $schema.getFields())
-
   private ${this.javaUnbox($field.schema())} ${this.mangle($field.name(), $schema.isError())};
 #end
 
