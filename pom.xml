@@ -17,7 +17,19 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <compiler-plugin.version>2.3.2</compiler-plugin.version>
+    <avro.modified.version>1.9.1-SNAPSHOT</avro.modified.version>
   </properties>
+
+  <pluginRepositories>
+    <pluginRepository>
+      <id>avro-mvn-repo</id>
+      <url>https://raw.github.com/geteloquent/me-binaries/avro/</url>
+      <snapshots>
+        <enabled>true</enabled>
+        <updatePolicy>always</updatePolicy>
+      </snapshots>
+    </pluginRepository>
+  </pluginRepositories>
 
   <build>
     <plugins>
@@ -29,12 +41,12 @@
       <plugin>
         <groupId>org.apache.avro</groupId>
         <artifactId>avro-maven-plugin</artifactId>
-        <version>1.9.0-SNAPSHOT</version>
+        <version>${avro.modified.version}</version>
         <dependencies>
           <dependency>
             <groupId>org.apache.avro</groupId>
             <artifactId>avro-compiler</artifactId>
-            <version>1.9.0-SNAPSHOT</version>
+            <version>${avro.modified.version}</version>
           </dependency>
           <dependency>
             <groupId>br.com.me</groupId>
